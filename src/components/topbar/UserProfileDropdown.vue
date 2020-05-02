@@ -24,7 +24,7 @@
           <font-awesome-icon icon="sign-out-alt" class='fa-fw mr-2 text-gray-400'/>
           <span>Logout</span>
         </a>
-      </div>
+      </div> 
     </li>
   </div>
 </template>

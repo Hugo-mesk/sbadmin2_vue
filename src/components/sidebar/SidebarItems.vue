@@ -7,7 +7,7 @@
 
 <script>
 import sidebarSingleItem from './SidebarSingleItem.vue'
-import sidebarCollapsItem from './SidebarCollapsItem.vue'
+import sidebarCollapseItem from './SidebarCollapseItem.vue'
 
 export default {
   props: ['sidebarItem', 'toggled'],
@@ -18,13 +18,13 @@ export default {
   },
   components: {
     'sidebarSingleItem': sidebarSingleItem,
-    'sidebarCollapsItem': sidebarCollapsItem
+    'sidebarCollapseItem': sidebarCollapseItem
   },
   created() {
-    if("undefined" === typeof(this.sidebarItem["collaps"])){
+    if("undefined" === typeof(this.sidebarItem["collapse"])){
       this.component = sidebarSingleItem
     }else{
-      this.component = sidebarCollapsItem
+      this.component = sidebarCollapseItem
     }
   }
 }

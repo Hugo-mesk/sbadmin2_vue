@@ -3,7 +3,7 @@
     <a class="nav-link dropdown-toggle" v-on:click='handleClick' href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <font-awesome-icon icon="sign-in-alt"/>
       <span>Log In</span>
-    </a>
+    </a> 
     <!-- Dropdown - Alerts -->
     <div v-bind:class="classes" aria-labelledby="alertsDropdown">
       <h6 class="dropdown-header">

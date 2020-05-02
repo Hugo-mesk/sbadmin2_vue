@@ -26,10 +26,10 @@ export default {
           'title': 'Components',
           'active': false,
           'icon': 'cog',
-          'collaps': {
+          'collapse': {
             1:{
               'key': 1,
-              'title': 'Custom Components:',
+              'header': 'Custom Components:',
               'items': {
                 1: {
                   'title': 'Buttons',
@@ -47,10 +47,10 @@ export default {
           'title': 'Utilities',
           'active': false,
           'icon': 'wrench',
-          'collaps': {
+          'collapse': {
             1:{
               'key': 2,
-              'title': 'Custom Utilities:',
+              'header': 'Custom Utilities:',
               'items': {
                 1: {
                   'title': 'Colors',
@@ -81,10 +81,10 @@ export default {
           'title': 'Pages',
           'active': false,
           'icon': 'cog',
-          'collaps': {
+          'collapse': {
             1:{
               'key':3,
-              'title': 'Login Screens:',
+              'header': 'Login Screens:',
               'items': {
                 1: {
                   'title': 'Login',
@@ -102,7 +102,7 @@ export default {
             },
             2:{
               'key': 4,
-              'title': 'Other Pages:',
+              'header': 'Other Pages:',
               'items': {
                 4: {
                   'title': '404 Page',

@@ -2,17 +2,13 @@
   <li class="nav-item dropdown no-arrow mx-1">
     <a class="nav-link dropdown-toggle" v-on:click='handleClick' href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <font-awesome-icon v-bind:icon="items.icon"/>
-      <!-- Counter - Alerts -->
       <span class="badge badge-danger badge-counter">{{ items.counter }}+</span>
     </a>
-    <!-- Dropdown - Alerts -->
     <div v-bind:class="classes" aria-labelledby="alertsDropdown">
       <h6 class="dropdown-header">
         {{ items.title }}
       </h6>
-      <component v-bind:is="component"
-                 v-bind:items="items.items">
-      </component>
+      <slot></slot>
       <a class="dropdown-item text-center small text-gray-500" href="#">{{ items.link_title }}</a>
     </div>
   </li>

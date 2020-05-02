@@ -1,14 +1,13 @@
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faWrench, faCog, faTable, faChartArea,
-         faAngleDown, faAngleUp, faAngleRight, faAngleLeft,
+         faAngleDown, faAngleUp,
          faTachometerAlt, faLaughWink,
          faSearch, faBars, faBell, faEnvelope,
          faFileAlt, faExclamationTriangle, faDonate,
          faDownload, faSignInAlt,
          faUser, faSignOutAlt, faList, faUserCog
        } from '@fortawesome/free-solid-svg-icons'
-import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -31,13 +30,12 @@ Vue.use(IconsPlugin);
 Vue.config.productionTip = false;
 
 library.add(faWrench, faCog, faTable, faChartArea);
-library.add(faAngleDown, faAngleUp, faAngleRight, faAngleLeft);
+library.add(faAngleDown, faAngleUp);
 library.add(faTachometerAlt, faLaughWink);
 library.add(faSearch, faBars, faBell, faEnvelope);
 library.add(faFileAlt, faExclamationTriangle, faDonate);
 library.add(faDownload, faSignInAlt);
 library.add(faUser, faSignOutAlt, faList, faUserCog);
-library.add(faFacebookF, faGoogle);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 new Vue({

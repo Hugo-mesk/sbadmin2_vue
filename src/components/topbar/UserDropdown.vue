@@ -23,7 +23,7 @@ export default {
         'shadow': true,
         'animated--grow-in': true,
         'show': false,
-      },
+      }, 
       'component': '',
     }
   },

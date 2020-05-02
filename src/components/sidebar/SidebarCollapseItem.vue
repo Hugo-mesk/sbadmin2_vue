@@ -7,7 +7,7 @@
     </a>
     <div v-bind:id="'toggle'+sidebarItem.title" v-bind:class="classes" v-show="style" v-bind:aria-labelledby="'heading'+sidebarItem.title" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded"
-           v-for="group in sidebarItem.collaps"
+           v-for="group in sidebarItem.collapse"
            v-bind:key="'CollapsGroup' + group.key">
         <h6 class="collapse-header">{{ group.title }}</h6>
         <a v-for="item in group.items"
@@ -20,9 +20,38 @@
 </template>
 
 <script>
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faWrench, faCog, faTable, faChartArea, faTachometerAlt,
+         faLaughWink, faFileAlt
+       } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faWrench, faCog, faTable, faChartArea, faTachometerAlt,);
+library.add(faLaughWink, faFileAlt);
 
 export default {
-  props: ['sidebarItem', 'toggled'],
+  props: {
+    /**
+    *  The sidebar item is a object is not common use edit by hand.
+    *  @values title, active, icon, collapse
+    *
+    *  icon-> wrench, cog, table, chart-area, tachometer-alt, laugh-wink, file-alt
+    *
+    *  collapse-> key, header, items
+    *  collapse items-> title, url
+    */
+    'sidebarItem': {
+      type: Object,
+      default: null,
+    },
+    /**
+    *  A boolean value tracs the sidebar is toggled state.
+    *  When toggled the collapse angle must be omitted.
+    *  The accordion like collapse turn in "dropleft" panel.
+    */
+    'toggled': {
+      type: Boolean,
+    }
+  },
   data: function(){
     return {
       classes: {
@@ -53,7 +82,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
   a span {
     padding: 5px;
   }
