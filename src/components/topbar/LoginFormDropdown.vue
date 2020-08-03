@@ -3,7 +3,7 @@
     <a class="nav-link dropdown-toggle" v-on:click='handleClick' href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <font-awesome-icon icon="sign-in-alt"/>
       <span>Log In</span>
-    </a> 
+    </a>
     <!-- Dropdown - Alerts -->
     <div v-bind:class="classes" aria-labelledby="alertsDropdown">
       <h6 class="dropdown-header">
@@ -26,20 +26,29 @@
           Login
         </a>
         <hr>
-        <a href="index.html" class="btn btn-google btn-user btn-block">
-          <font-awesome-icon :icon="['fab', 'google']" size="lg" /> Login with Google
-        </a>
-        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-          <font-awesome-icon :icon="['fab', 'facebook-f']" /> Login with Facebook
-        </a>
+        <sb-button type="block" icon="facebook">Login with Facebook</sb-button>
+        <sb-button type="block" icon="google">Login with Google</sb-button>
       </form>
     </div>
   </li>
 </template>
 
 <script>
+import SbButton from "../uiElements/Button"
+
 export default {
-  props: ['section'],
+  props: {
+    /**
+    * Section is a Object supply some infomrmation about the current user.
+    *
+    * loged-> boolean
+    * source-> Url of user image for show in topbar
+    * userName-> String to show in topbar.
+    */
+    'section': {
+      type: Object,
+    }
+    },
   data: function(){
     return {
       'classes':{
@@ -53,6 +62,9 @@ export default {
       'component': '',
       'userName': this.section.userName,
     }
+  },
+  components: {
+    'sb-button': SbButton,
   },
   methods:{
     handleClick: function(){

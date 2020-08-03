@@ -1,30 +1,27 @@
 <template>
   <a href="#" v-bind:class="btn.btnClasses">
-    <font-awesome-icon v-bind:icon="btn.icon" v-bind:class='btn.iconClasses'/>
-    <span v-if="caption==!''" class="text">{{ caption }}</span>
+    <font-awesome-icon v-if="this.type=='circle' || this.type=='block'" v-bind:icon="btn.icon" v-bind:class='btn.iconClasses'/>
+    <span v-if="this.type=='icon'" class="icon text-white-50">
+      <font-awesome-icon v-bind:icon="btn.icon" v-bind:class='btn.iconClasses'/>
+    </span>
+    <span class="text"><slot></slot></span>
   </a>
 </template>
 
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCheck, faInfoCircle, faExclamationTriangle,
-         faTrash, faFlag, faArrowRight,faAngleRight, faAngleLeft
+  faAngleRight,
+         faTrash, faFlag, faArrowRight, faAngleLeft, faAngleUp,faAngleDown
        } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons'
 
-library.add(faCheck, faInfoCircle, faExclamationTriangle);
-library.add(faTrash, faFlag, faArrowRight, faAngleRight, faAngleLeft);
+library.add(faCheck, faInfoCircle, faExclamationTriangle, faAngleRight);
+library.add(faTrash, faFlag, faArrowRight, faAngleLeft, faAngleUp,faAngleDown);
 library.add(faFacebookF, faGoogle);
 
 export default {
   props: {
-    /**
-    * The capition of the button optional
-    */
-    'caption':{
-      type: String,
-      default: null,
-    },
     /**
     * The type of the button optional
     * @values circle, icon, block, null
@@ -86,6 +83,8 @@ export default {
           'btn-warning': false,
           'btn-danger': false,
           'btn-light': false,
+          'btn-google': false,
+          'btn-facebook': false,
           'btn-sm': false,
           'btn-lg': false,
         },
@@ -107,6 +106,16 @@ export default {
       this.btn.btnClasses['btn-user'] = true;
       this.btn.btnClasses['btn-block'] = true;
     }
+    if (this.icon){
+      this.btn.hasIcon = true;
+      if (this.icon === "facebook") {
+        this.btn.btnClasses['btn-facebook'] = true;
+        this.btn.icon = ['fab', 'facebook-f'];
+      } else if (this.icon === "google") {
+        this.btn.btnClasses['btn-google'] = true;
+        this.btn.icon= ['fab', this.icon];
+      }
+    }
     if (this.color==="primary"){
       this.btn.btnClasses['btn-primary'] = true;
     } else if (this.color==="secondary"){
@@ -122,14 +131,6 @@ export default {
     } else if (this.color==="light"){
       this.btn.btnClasses['btn-light'] = true;
     }
-    if (this.icon){
-      this.btn.hasIcon = true;
-      if (this.icon === "facebook-f" || this.icon === "google") {
-        this.btn.icon = ['fab', this.icon];
-      } else {
-        this.btn.icon= ['fas', this.icon];
-      }
-    }
     if (this.size==="small"){
       this.btn.btnClasses['btn-sm'] = true;
     } else if (this.size==="large") {
@@ -139,6 +140,11 @@ export default {
       this.btn.iconClasses['text-white-50'] = true;
     } else if (this.classes==="gray") {
       this.btn.iconClasses['text-gray-600'] = true;
+    }
+    if (this.$slots.default) {
+      if (this.caption) {
+        console.log("You fill Caption and Slot the caption will be discarted.")
+      }
     }
   },
   methods:{

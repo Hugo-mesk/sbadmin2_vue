@@ -35,8 +35,7 @@
 
             <!-- Content -->
             <div class="row">
-              <sb-button type='circle' color='primary' icon='facebook-f'
-                         prefix='fab' size='lg' classes='transparent' ></sb-button>
+              <sb-table v-bind:datatable='data.datatable'></sb-table>
             </div>
             <!-- End of Content -->
 
@@ -66,7 +65,7 @@
 import Sidebar from './components/sidebar/Sidebar.vue'
 import Topbar from './components/topbar/Topbar.vue'
 import InicialData from './fixture'
-import Button from './components/uiElements/Button.vue'
+import Datatable from './components/uiElements/Datatables.vue'
 
 export default {
   name: 'App',
@@ -78,7 +77,8 @@ export default {
   components: {
     'sidebar': Sidebar,
     'topbar': Topbar,
-    'sb-button': Button,
+    'sb-table': Datatable,
+
   }
 }
 </script>

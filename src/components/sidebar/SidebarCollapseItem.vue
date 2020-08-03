@@ -9,7 +9,7 @@
       <div class="bg-white py-2 collapse-inner rounded"
            v-for="group in sidebarItem.collapse"
            v-bind:key="'CollapsGroup' + group.key">
-        <h6 class="collapse-header">{{ group.title }}</h6>
+        <h6 class="collapse-header">{{ group.header }}</h6>
         <a v-for="item in group.items"
            class="collapse-item"
            v-bind:href="item.url"

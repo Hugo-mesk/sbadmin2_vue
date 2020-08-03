@@ -8,7 +8,9 @@
       <h6 class="dropdown-header">
         {{ items.title }}
       </h6>
-      <slot></slot>
+      <component v-bind:is="component"
+                 v-bind:items="items.items">
+      </component>
       <a class="dropdown-item text-center small text-gray-500" href="#">{{ items.link_title }}</a>
     </div>
   </li>

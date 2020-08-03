@@ -11,6 +11,12 @@ import { faWrench, faCog, faTable, faChartArea,
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+// import ElementUI from 'element-ui'
+// import locale from 'element-ui/lib/locale/lang/en'
+// import 'element-ui/lib/theme-chalk/index.css'
+// import DataTables and DataTablesServer separately
+// import { DataTables, DataTablesServer } from 'vue-data-tables'
+
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -21,9 +27,13 @@ import App from './App.vue'
 // Install BootstrapVue
 Vue.use(BootstrapVue);
 // Install Router
-Vue.use(VueRouter);
-
 //  const router = new VueRouter();
+Vue.use(VueRouter);
+// Install ElementUI
+// Vue.use(ElementUI, { locale })
+// // Install DataTables
+// Vue.use(DataTables)
+// Vue.use(DataTablesServer)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin);
 
